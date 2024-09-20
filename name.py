@@ -5,6 +5,7 @@ import modules
 import time
 
 now = time.strftime("%b %d, %Y %H:%M:%S")
+print('the time is :')
 print("It is ", now)
 while True:
     # Get user input and strip space chars from it.
