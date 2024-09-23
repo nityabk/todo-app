@@ -1,7 +1,7 @@
 #from modules import get_todos, write_todos
 from pprint import pprint
 
-import modules
+import cli
 import time
 
 now = time.strftime("%b %d, %Y %H:%M:%S")
@@ -15,14 +15,14 @@ while True:
     if user.startswith("add"):
         todo = user[4:]
 
-        todos = modules.get_todos()
+        todos = functions.get_todos()
 
         todos.append(todo + '\n')
 
-        modules.write_todos(todos, 'todos.txt')
+        functions.write_todos(todos, 'todos.txt')
 
     elif user.startswith("show"):
-        todos = modules.get_todos()
+        todos = functions.get_todos()
         # new_todos=[item.strip('\n') for item in todos]
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -35,11 +35,11 @@ while True:
             print(number)
 
             number = number - 1
-            todos = modules.get_todos()
+            todos = functions.get_todos()
 
             new_todo = input("enter new todo: ")
             todos[number] = new_todo + '\n'
-            modules.write_todos(todos, 'todos.txt')
+            functions.write_todos(todos, 'todos.txt')
         except ValueError:
             print("Your command is not valid")
             continue
@@ -48,12 +48,12 @@ while True:
         try:
             number = int(user[9:])
 
-            todos = modules.get_todos()
+            todos = functions.get_todos()
             index = number - 1
             todo_to_remove = todos[index].strip('\n')
             todos.pop(index)
 
-            modules.write_todos(todos, 'todos.txt')
+            functions.write_todos(todos, 'todos.txt')
 
             message = f"Todo {todo_to_remove} was removed from the list"
             print("message")
