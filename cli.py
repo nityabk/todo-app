@@ -1,21 +1,19 @@
-FILEPATH = "todos.txt"
+# from functions import get_tods,write_todos
+import functions
+import time
 
+now=time.strftime("%b %d, %Y %H:%M:%S")
+print("It is",now)
 
-def get_todos(filepath=FILEPATH):
-    """ READ A TEXT FILE AND RETURN THE LIST OF
-        TO-DO ITEMS
+while True:
+    user_action = input("Type add,show,edit,complete or exit: ")
+    user_action = user_action.strip()
 
-    """
-    with open(filepath, 'r') as file_local:
-        todos_local = file_local.readlines()
-    return todos_local
+if user_action.startswith("add"):
+    todo=user_action[4:]
 
+    todos=functions.get_todos()
 
-def write_todos(todos_arg, filepath=FILEPATH):
-    """Write the to-do items in the next file."""
+    todos.append(todo + '\n')
 
-    with open(filepath, 'w') as file:
-        file.writelines(todos_arg)
-
-
-print("hello from functions")
+    functions.write_tods(todos)
