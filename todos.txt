@@ -1,8 +1,3 @@
 make soup
-clean the program
-new order
 eat healthy food
-get new car
-sleep
 my new todo is added
-add lastly
